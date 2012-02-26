@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "User Details";
+    ViewBag.Breadcrumbs = "> User Information";
+}
+
+<table border="0" width="100%" height="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+			<div class="content_title">
+                Viewing details of the current user.
+			</div>
+		<td>
+	</tr>
+	<tr>
+		<td>
+			<div class="actions">
+                @Html.Partial("_Options")
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="content_area">
+            <div class="text">
+	            <table border="0" width="640" height="100%" cellspacing="0" cellpadding="0">
+		            <tr>
+			            <td class="content_area">
+				            <table border="0" width="100%" height="100%" cellspacing="0" cellpadding="0">
+					            <tr>
+						            <td>
+                                        @if (String.IsNullOrEmpty(ViewBag.error) == true)
+                                        {
+								            <div class="actions_record">
+                                                <input type="button" class="button" value="Edit" />
+                                                <input type="button" class="button" value="Disable" />
+                                            </div>
+                                            <table class="information" border="0" width="100%" cellspacing="0" cellpadding="0">
+									            <tbody>
+										            <tr>
+											            <td class="heading">First Name</td>
+											            <td class="info">Romayne</td>
+										            </tr>
+										            <tr>
+											            <td class="heading">Last Name</td>
+											            <td class="info">Eastmond</td>
+										            </tr>
+                                                    <tr>
+                                                        <td class="date" colspan="2">
+                                                            &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+								            <div class="actions_record">
+                                                <input type="button" class="button" value="Edit" />
+                                                <input type="button" class="button" value="Disable" />
+                                            </div>                                            
+                                        }
+                                        else
+                                        {
+                                            <span class="error">Error: <b>@ViewBag.error</b></span>
+                                        }
+						            </td>
+					            </tr>
+				            </table>
+			            </td>
+		            </tr>
+	            </table>
+            </div>
+		</td>
+	</tr>
+</table>

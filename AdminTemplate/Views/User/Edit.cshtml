@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Edit User";
+    ViewBag.Breadcrumbs = "> Edit User";
+
+    ViewBag.firstName = "Romayne";
+    ViewBag.lastName = "Eastmond";
+    ViewBag.primaryEmail = "info@calgarywebdev.com";
+}
+
+<table border="0" width="100%" height="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+			<div class="content_title">
+                @if (String.IsNullOrEmpty(ViewBag.error) == true)
+                {
+                    <text>Use the form below to edit the current user (</text>@ViewBag.firstName @ViewBag.lastName <text>-</text> @ViewBag.primaryEmail<text>).</text>
+                }
+                else
+                {
+                    <text>Use the form below to edit the current user.</text>
+                }
+			</div>
+		<td>
+	</tr>
+	<tr>
+		<td>
+			<div class="actions">
+                @Html.Partial("_Options")
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="content_area">
+            <div class="text">
+                @if (String.IsNullOrEmpty(ViewBag.postback) != true)
+                {
+                    <div id="status_message" class="success">Notice: <b>The user has been successfully edited.</b></div>
+                }
+                
+                @using (Html.BeginForm("Edit", "User", new RouteValueDictionary()))
+                {
+                    @Html.ValidationSummary(true, "Please correct the errors and try again.")
+    
+                    if (String.IsNullOrEmpty(ViewBag.error) != true)
+                    {
+                        <p class="error">Error: <strong>@ViewBag.error</strong></p>
+                    }
+    
+                    <div class="input_form width_550">
+                        <div class="editor-label">
+                            First Name
+                        </div>
+                        <div class="editor-field">
+                            <input type="text" />
+                        </div>
+
+                        <div class="editor-label">
+                            Last Name
+                        </div>
+                        <div class="editor-field">
+                            <input type="text" />
+                        </div>
+                    </div>
+
+                    <p>
+                        <input type="submit" class="button" value="Update" />
+                    </p>
+                }
+            </div>
+		</td>
+	</tr>
+</table>
